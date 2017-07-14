@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard"
+  ],
+  "plugins": [
+    "flowtype"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "comma-dangle": [2, "always-multiline"],
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1,
+    "max-len": [2, 120, 2],
+    "object-curly-spacing": ["error", "always"],
+    "semi": [2, "never"],
+    "space-infix-ops": ["error", {"int32Hint": false}],
+    "template-curly-spacing": ["error", "always"],
+    "prefer-promise-reject-errors": 0,
+  }
+}

@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ldap:
+    image: osixia/openldap
+    ports:
+     - "9300:389"
+    deploy:
+      replicas: 1
+  mongo:
+    image: mongo:3
+    ports:
+     - "9400:27017"
+    deploy:
+      replicas: 1

@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nodejs-starter-kit:
+    image: swarm.example.com:5000/example/nodejs-starter-kit:$version
+    environment:
+      DATABASE_URI: "mongodb-0.example.com:27017,mongodb-1.example.com:27017,mongodb-2.example.com:27017"
+      LDAP_BASE_DN: "dc=example,dc=org"
+      LDAP_HOST: "ldap-master.example.com"
+      LDAP_PORT: 389
+      LDAP_LOGIN: "starter-kit"
+      LDAP_PASSWORD: "weak"
+    ports:
+     - "80:80"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 30s
+      restart_policy:
+        condition: on-failure

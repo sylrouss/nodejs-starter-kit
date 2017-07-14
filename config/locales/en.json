@@ -1,0 +1,7 @@
+{
+	"invalid token": "invalid token",
+	"forbidden access": "forbidden access",
+	"internal error": "internal error",
+	"incorrect credentials": "incorrect credentials",
+	"not found": "not found"
+}
