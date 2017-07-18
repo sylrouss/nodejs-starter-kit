@@ -22,7 +22,14 @@ before((done) => {
     if (err) { done(err) }
     createLDAPUser('testback', 'testoffice', 'weak', (err) => {
       if (err) { done(err) }
-      done()
+      mongoose.disconnect()
+      .then(() => {
+        mongoose.connect(mongoUrl, options)
+        mongoose.connection.once('connected', () => {
+          done()
+        })
+      })
+      .catch(done)
     })
   })
 })
@@ -31,21 +38,8 @@ after((done) => (
   removeLDAPUser('testback', 'testoffice', done)
 ))
 
-beforeEach((done) => {
-  mongoose.disconnect()
-  .then(() => {
-    mongoose.connect(mongoUrl, options)
-    mongoose.connection.once('connected', () => {
-      mongoose.connection.db.dropDatabase()
-      done()
-    })
-  })
-  .catch(done)
-})
-
-afterEach((done) => {
-  mongoose.disconnect()
-  .then(done)
+beforeEach(() => {
+  mongoose.connection.db.dropDatabase()
 })
 
 export const baseURL = () => url
