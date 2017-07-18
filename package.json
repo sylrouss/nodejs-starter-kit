@@ -1,9 +1,21 @@
 {
-  "private": true,
-  "main": "index.js",
+  "name": "nodejs-starter-kit",
+  "version": "1.0.0",
+  "description": "A Node.js starter-kit with front-end and back-office login using LDAP, OTP and Mongo",
+  "main": "src/server.js",
+  "author": "Sylvain Rousseau",
+  "homepage": "https://github.com/sylrouss/nodejs-starter-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sylrouss/nodejs-starter-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sylrouss/nodejs-starter-kit/issues"
+  },
+  "private": false,
   "engines": {
-    "node": ">=4.2.0",
-    "npm": "^3.0.0"
+    "node": ">=6.10.1",
+    "npm": "^3.10.10"
   },
   "scripts": {
     "build": "node node_modules/webpack/bin/webpack --colors --display-error-details --config build/webpack.config.js",
@@ -131,5 +143,13 @@
     "sinon": "^2.3.8",
     "supertest": "^3.0.0",
     "webpack": "^3.3.0"
-  }
-}
+  },
+  "readmeFilename": "README.md",
+  "keywords": [
+   "nodejs",
+   "starter-kit",
+   "ldap",
+   "mongo"
+  ],
+  "license": "MIT"
+ }
