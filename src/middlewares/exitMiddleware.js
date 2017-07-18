@@ -2,21 +2,21 @@ import mongoose from 'mongoose'
 import { logger } from './../settings'
 
 module.exports = (server, port) => {
+  const closeServerHandler = (signal, err) => {
+    server.close(() => {
+      logger.info({ err, port, signal }, 'exit gracefully')
+      process.exit(0)
+    })
+  }
   const exitHandler = (signal, err) => {
     mongoose.disconnect()
     .then(() => {
-      logger.info({ err, port, signal }, 'mongo disconnected')
-      server.close(() => {
-        logger.info({ err, port, signal }, 'exit gracefully')
-        process.exit(0)
-      })
+      logger.info({ }, 'mongo disconnected')
+      closeServerHandler(signal, err)
     })
-    .catch((err) => {
-      logger.err({ err, port, signal }, 'mongo failed to disconnect')
-      server.close(() => {
-        logger.info({ err, port, signal }, 'exit gracefully')
-        process.exit(0)
-      })
+    .catch((mongoError) => {
+      logger.err({ mongoError }, 'mongo failed to disconnect')
+      closeServerHandler(signal, err)
     })
   }
   process.on('SIGINT', exitHandler.bind(null, 'SIGINT'))
