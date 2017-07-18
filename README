@@ -1,2 +1,0 @@
-* to run third parties : docker deploy -c docker-compose-development.yml dev
-* to initialize development environment : npm run dev:init
