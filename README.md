@@ -77,9 +77,7 @@ The folder structure provided is only meant to serve as a guide.
 
 ## Deployment
 
-<aside class="warning">
-The default `secret.pem` file should be regenerated when going on production!
-</aside>
+> The default `secret.pem` file should be regenerated when going on production!
 
 ```shell
 $ openssl req -newkey rsa:2048 -new -nodes -keyout new_secret.pem
