@@ -36,14 +36,16 @@ app.use((err, req, res, next) => {
   res.json({ 'error': { message: err.message, error: {} } })
 })
 
+const PORT_USED_FOR_TESTS = '3001'
 const port = app.get('port')
-if (port !== '3001') {
-  app.listen(port, () => {
+if (port !== PORT_USED_FOR_TESTS) {
+  var server = app.listen(port, () => {
     logger.info({ port }, 'start')
   })
-  .on('error', (error) => {
+  server.on('error', (error) => {
     logger.error({ error, port }, 'start')
   })
+  require('./middlewares/exitMiddleware')(server, port)
 }
 
 module.exports = app
