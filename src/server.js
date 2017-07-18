@@ -16,7 +16,7 @@ i18n.configure({
 app.use(i18n.init)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.set('port', process.env.PORT || 7777)
+app.set('port', process.env.PORT)
 
 require('./middlewares/logsMiddleware')(app)
 require('./middlewares/authorizationMiddleware')(app)

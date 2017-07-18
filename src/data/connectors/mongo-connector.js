@@ -12,17 +12,6 @@ var options = {
 }
 mongoose.connect(`mongodb://${ uri }/${ process.env.DATABASE_NAME }`, options)
 
-export const defaultJSONTransform = (doc, ret, options) => {
-  delete ret._id
-  delete ret.__v
-  delete ret.n
-  delete ret.nModified
-  delete ret.ok
-  return ret
-}
-
 export const findOne = (model, conditions) => model.findOne(conditions)
-
-export const save = (object) => object.save()
 
 export const update = (model, _id, data) => model.update({ _id }, { $set: data })

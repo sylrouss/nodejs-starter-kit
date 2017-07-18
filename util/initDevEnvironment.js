@@ -1,6 +1,5 @@
 require('babel-register')
 var BackofficeUser = require('../src/data/backofficeUser').BackofficeUser
-var save = require('../src/data/connectors/mongo-connector').save
 var bind = require('../src/data/connectors/ldap-connector').bind
 var ldapClient = require('../src/data/connectors/ldap-connector').ldapClient
 
@@ -37,7 +36,7 @@ const addLDAPUser = (cn, entry) =>
     })
   })
 
-const addBackofficeUser = () => save(new BackofficeUser(BACKOFFICE_USER_DB))
+const addBackofficeUser = () => new BackofficeUser(BACKOFFICE_USER_DB).save()
 
 bind(`cn=${ ldapLogin },dc=example,dc=org`, ldapPassword)
 .then(() => Promise.all([addLDAPUser('back office', BACKOFFICE_USER_LDAP), addLDAPUser('foo bar', USER_LDAP)]))

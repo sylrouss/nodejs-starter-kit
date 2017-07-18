@@ -44,10 +44,11 @@
       "env": {
         "DATABASE_NAME": "dev",
         "DATABASE_PORT": 9400,
-        "LDAP_PORT": 9300,
         "LDAP_LOGIN": "admin",
         "LDAP_PASSWORD": "admin",
-        "NODE_ENV": "development"
+        "LDAP_PORT": 9300,
+        "NODE_ENV": "development",
+        "PORT": 7777
       }
     },
     "test-report": {
@@ -55,12 +56,12 @@
       "env": {
         "DATABASE_NAME": "test",
         "DATABASE_PORT": 9400,
-        "LDAP_PORT": 9300,
-        "PORT": 3001,
         "LDAP_LOGIN": "admin",
         "LDAP_PASSWORD": "admin",
+        "LDAP_PORT": 9300,
         "NODE_ENV": "test",
-        "NOTRACE": 1
+        "NOTRACE": 1,
+        "PORT": 3001
       }
     },
     "test": {
@@ -68,11 +69,11 @@
       "env": {
         "DATABASE_NAME": "test",
         "DATABASE_PORT": 9400,
-        "LDAP_PORT": 9300,
-        "PORT": 3001,
         "LDAP_LOGIN": "admin",
         "LDAP_PASSWORD": "admin",
-        "NODE_ENV": "test"
+        "LDAP_PORT": 9300,
+        "NODE_ENV": "test",
+        "PORT": 3001
       }
     },
     "test-with-cobertura": {
@@ -80,11 +81,11 @@
       "env": {
         "DATABASE_NAME": "test",
         "DATABASE_PORT": 9400,
-        "LDAP_PORT": 9300,
-        "PORT": 3001,
         "LDAP_LOGIN": "admin",
         "LDAP_PASSWORD": "admin",
-        "NODE_ENV": "test"
+        "LDAP_PORT": 9300,
+        "NODE_ENV": "test",
+        "PORT": 3001
       }
     }
   },
