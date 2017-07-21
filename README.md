@@ -27,15 +27,15 @@ Just clone the repo and install the necessary node modules:
 ```shell
 $ git clone https://github.com/sylrouss/nodejs-starter-kit.git
 $ cd nodejs-starter-kit
-$ npm install                   # Install Node modules listed in ./package.json (may take a while the first time)
-$ npm start dev                 # Compile and launch
+$ npm install                 # Install Node modules listed in ./package.json (may take a while the first time)
+$ npm run dev                 # Compile and launch
 ```
 
 ## Usage
 
 ### Development and Production
 
-* Doing live development? Use `npm start dev` to spin up the development server.
+* Doing live development? Use `npm run dev` to spin up the development server.
 * Compiling the application to disk? Use `npm run build`.
 * Creating a Docker image? `docker build -t example/nodejs-starter-kit .`
 * Deploying to a docker swarm environment? Use docker-compose-production-template.yml
